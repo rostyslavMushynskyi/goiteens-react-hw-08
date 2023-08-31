@@ -29,7 +29,7 @@ import { Typography, Button } from "@mui/material";
 
 import { motion, AnimatePresence } from "framer-motion";
 
-function ContactList({ contacts, name, number, filter, deleteContact }) {
+function ContactList({ contacts, filter, deleteContact }) {
   const filteredContacts = contacts.filter((contact) =>
     contact.name.toLowerCase().includes(filter.toLowerCase())
   );
@@ -55,9 +55,7 @@ function ContactList({ contacts, name, number, filter, deleteContact }) {
                   exit={{ opacity: 0, x: -40 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <span>
-                    {name}: {number}
-                  </span>
+                  {contact.name}: {contact.number}
                   <Button
                     onClick={() => deleteContact(contact.id)}
                     style={{ margin: "20px" }}
